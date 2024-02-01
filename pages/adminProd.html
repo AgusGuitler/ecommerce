@@ -13,12 +13,12 @@
     <link rel="shortcut icon" href="/img/icon.webp" type="image/x-icon">
     <title>Administracion productos</title>
 </head>
-<body class="bg-gradient bg-body-tertiary">
+<body class="bg-gradient bg-body-tertiary ">
     <header>
         <nav class="navbar navbar-expand-lg nav navbar-dark bg-dark sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/index.html">
-                  <img src="/img/logorolling.webp" class="" alt="logo" style="height: 50px;">
+                    <img src="/img/logorolling.webp" class="mx-2" alt="logo" style="height: 50px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,10 +62,10 @@
                     <form id="formSignUp" class="form-signUp">
                         <h1 class="mt-4">CREAR CUENTA</h1>
                         <div class="social-icons">
-                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                         <span>o crea una cuenta con tu mail</span>
                         <div class="form_inputs" >
@@ -87,10 +87,10 @@
                     <form class="">
                         <h1>INICIAR SESION</h1>
                         <div class="social-icons">
-                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
+                            <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                         </div>
                         <span>o inicia sesion con</span>
                         <div class="form_inputs ">
@@ -99,7 +99,7 @@
                             <input type="password" id="passSignIng"  placeholder="Contraseña" required>
                             <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
                         </div>
-                            <a data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
+                            <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
                         </div>
                         <button id="btn_signIn" type="button" onclick="signIn()">Iniciar Sesion</button>
                     </form>
@@ -146,7 +146,7 @@
 
     </header>
     <main class="container">
-        <section class="my-5">
+        <section>
             <div class="d-flex justify-content-between">
                 <h2 class="fw-bold my-4">Tabla de productos</h2>
             </div>
@@ -174,7 +174,7 @@
         <section class="my-4">
             <h2 id="titulo" class="text-center fw-bold">Administrar productos</h2>
         </section>
-        <section class="container">
+        <section class="container my-5">
             <form id="formProducts" class="fw-bold fs-5 bg-body-secondary px-5 py-4 rounded-4">
                 <div class="my-1">
                     <label for="code" class="form-label" >CODIGO</label>

@@ -19,7 +19,7 @@ function listFavoriteProduc() {
                 </td>
             </tr>
         `;
-  }); console.log(arrFavoriteProducts)
+  });
 }
 
 // Calcular y mostrar el total

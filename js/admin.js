@@ -18,7 +18,6 @@ let inputImgUrl = document.getElementById("imgUrl");
 let inputDescription = document.getElementById("description");
 let inputStock = document.getElementById("stock");
 
-console.log(bodyTabla);
 let form = document.getElementById('formProducts');
 
 inputCode.value = setCode();

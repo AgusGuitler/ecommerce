@@ -8,20 +8,20 @@
   <meta name="author" content="Grupo N°5" />
   <meta name="keywords" content="Repuestos de motos" />
   <!-- Enlace a CSS de Bootstrap -->
-  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="../css/stylesheet.css" />
-  <link rel="stylesheet" href="./css/regLogin.css">
-  <link rel="stylesheet" href="../css/StyleAboutUs.css">
+  <link rel="stylesheet" href="/css/stylesheet.css" />
+  <link rel="stylesheet" href="/css/regLogin.css">
   <link rel="shortcut icon" href="../img/icon.webp" type="image/x-icon">
   <title>Rolling Moto</title>
 </head>
+<header>
 
-<body class="bg-body-secondary">
+  <body class="bg-body-secondary">
   <nav class="navbar navbar-expand-lg nav navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-          <img src="../img/logorolling.webp" class="" alt="logo" style="height: 50px;">
+        <a class="navbar-brand" href="/index.html">
+          <img src="/img/logorolling.webp" class="mx-2" alt="logo" style="height: 50px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,21 +30,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-3">
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
+                    <a class="nav-link " aria-current="page" href="/index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Acerca de nosotros</a>
+                    <a class="nav-link active" href="/pages/aboutUs.html">Acerca de nosotros</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link d-none" id="adminUserBtn">Administrar usuarios</a>
+                    <a class="nav-link d-none" id="adminUserBtn" href="/pages/adminUser.html">Administrar usuarios</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link d-none" id="adminProdBtn">Administrar productos</a>
+                  <a class="nav-link d-none " id="adminProdBtn" href="/pages/adminProd.html">Administrar productos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link d-none" id="prodSelected">Productos favoritos</a>
+                <a class="nav-link d-none" id="prodSelected" href="/pages/favoriteProd.html">Productos favoritos</a>
             </li>
-              
             </ul>
             <button type="button" class="btn btnSignIn" data-bs-toggle="modal" data-bs-target="#signInModal" id="btnSignIn">
               INICIAR SESION
@@ -55,190 +54,207 @@
         </div>
     </div>
   </nav>
-
-      <!-- Modal -->
-      <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog ">
-            <div class="containerModal p-0 " id="container">
-                <div class="modal-content bg-body-secondary">
-                    <button type="button" class="btn-close bg-transparent mt-3 ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                <div class=" form-container sign-up ">
-                    <form id="formSignUp" class="form-signUp">
-                        <h1 class="mt-4">CREAR CUENTA</h1>
-                        <div class="social-icons">
-                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                        </div>
-                        <span>o crea una cuenta con tu mail</span>
-                        <div class="form_inputs" >
-                            <input type="text" id="nameInput" placeholder="Nombre Completo">
-                            <input type="email"  id="emailInput" placeholder="Email" required>
-                            <div class="password">
-                            <input type="password" id="passInput" placeholder="Contraseña" required>
-                            <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
-                            </div>
-                            <div class="password">
-                            <input type="password" id="repPassInput" placeholder="Repetir Contraseña" class="" required>
-                            <img id="repPassIcon" src="/src/eye-slash.svg" onclick="repPass()">
-                            </div>
-                        </div>
-                        <button id="btn_signUp"type="button" onclick="createUser()">REGISTRARSE</button>
-                    </form>
+    <!-- Modal -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="containerModal p-0 " id="container">
+          <div class="modal-content bg-body-secondary">
+            <button type="button" class="btn-close bg-transparent mt-3 ms-auto p-3" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+            <div class=" form-container sign-up ">
+              <form id="formSignUp" class="form-signUp">
+                <h1 class="mt-4">CREAR CUENTA</h1>
+                <div class="social-icons">
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
-                <div class="form-container  sign-in mt-5">
-                    <form class="">
-                        <h1>INICIAR SESION</h1>
-                        <div class="social-icons">
-                            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                            <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                        </div>
-                        <span>o inicia sesion con</span>
-                        <div class="form_inputs ">
-                        <input type="email" id="emailSignIn" placeholder="Email" required>
-                        <div class="password">
-                            <input type="password" id="passSignIng"  placeholder="Contraseña" required>
-                            <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
-                        </div>
-                            <a data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
-                        </div>
-                        <button id="btn_signIn" type="button" onclick="signIn()">Iniciar Sesion</button>
-                    </form>
-                </div> 
-                <div class="toggle-container">
-                    <div class="toggle">
-                        <div class="toggle-panel toggle-left">
-                            <p>Si ya tienes una cuenta</p>
-                            <button class="hidden" id="login">INICIAR SESION</button>
-                        </div>
-                        <div class="toggle-panel toggle-right">
-                            <p>Si no estas registrado</p>
-                            <button class="hidden" id="register">CREAR CUENTA</button>
-                        </div>
-                    </div>
+                <span>o crea una cuenta con tu mail</span>
+                <div class="form_inputs">
+                  <input type="text" id="nameInput" placeholder="Nombre Completo">
+                  <input type="email" id="emailInput" placeholder="Email" required>
+                  <div class="password">
+                    <input type="password" id="passInput" placeholder="Contraseña" required>
+                    <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
+                  </div>
+                  <div class="password">
+                    <input type="password" id="repPassInput" placeholder="Repetir Contraseña" class="" required>
+                    <img id="repPassIcon" src="/src/eye-slash.svg" onclick="repPass()">
+                  </div>
                 </div>
+                <button id="btn_signUp" type="button" onclick="createUser()">REGISTRARSE</button>
+              </form>
+            </div>
+            <div class="form-container  sign-in mt-5">
+              <form class="">
+                <h1>INICIAR SESION</h1>
+                <div class="social-icons">
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
+                  <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
+                <span>o inicia sesion con</span>
+                <div class="form_inputs ">
+                  <input type="email" id="emailSignIn" placeholder="Email" required>
+                  <div class="password">
+                    <input type="password" id="passSignIng" placeholder="Contraseña" required>
+                    <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
+                  </div>
+                  <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>
+                </div>
+                <button id="btn_signIn" type="button" onclick="signIn()">Iniciar Sesion</button>
+              </form>
+            </div>
+            <div class="toggle-container">
+              <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                  <p>Si ya tienes una cuenta</p>
+                  <button class="hidden" id="login">INICIAR SESION</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                  <p>Si no estas registrado</p>
+                  <button class="hidden" id="register">CREAR CUENTA</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      <!-- Modal -->
-        <div class="modal fade" id="restorePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered">
-           <form>
-           <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Recuperar contraseña</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body justify-content-center">
-                <p>Ingrese el correo con el que sea registrado</p>
-                <input type="email" name="email" autocomplete="none" class="p-1" placeholder="Email" required>
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            </div>
-            </div>
-             </form>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="restorePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <form action="/pages/errorpage.html">
+        <div class="modal-content mx-5 bg-dark text-bg-dark">
+         <div class="modal-header">
+             <h1 class="modal-title fs-4" id="exampleModalLabel">Recuperar contraseña</h1>
+             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
+         <div class="modal-body justify-content-center">
+             <p>Ingrese el correo con el que sea registrado</p>
+             <p>Y te enviaremos un correo para continuar</p>
+             <input type="email" name="email" autocomplete="none" class="p-2" placeholder="Email" required>
+         </div>
+         <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+         <button type="submit" class="btn btn-custom-hoveer btn-custom-colours text-light">Enviar</button>
+         </div>
+         </div>
+          </form>
+      </div>
+     </div>
+</header>
+  
+  <main>
+    <section>
+      <div>
+        <img src="../img/banneraboutus_1.webp" class="h-auto w-100" alt="Banner">
+      </div>
+    </section>
+  
+    <section class="mt-2 mb-2">
+      <div class="row row-cols-1 row-cols-md-2 w-100 mx-auto">
+        <div class="col">
+          <div class="card text-bg-dark m-2 ">
+            <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_lamar_256.jpg"
+              class="card-img-top rounded-circle mt-3  mx-auto" alt="indumentaria" style="height: 100px ; width:100px;">
+            <div class="card-body">
+              <h5 class="card-title text-colour-title text-center">Marcos zambrana</h5>Mi nombre es Marcos y tengo 25
+              años. Soy técnico electricista de profesión, pero mis verdaderas pasiones son la programación, el basquet y
+              la gastronomía </p>
+            </div>
+          </div>
         </div>
-
-        <section class="">
-            <!-- Agregar el banner -->
-            <div class="">
-                <div class="">
-                    <img src="../img/banneraboutus_1.webp" class="h-auto w-100"   alt="Banner">
-                </div>
+        <div class="col">
+          <div class="card text-bg-dark m-2 ">
+            <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_michael_with_money_256.jpg"
+              class="card-img-top rounded-circle mt-3 mx-auto" alt="indumentaria" style="height: 100px ; width:100px;">
+            <div class="card-body">
+              <h5 class="card-title text-colour-title text-center">Maximiliano Morey</h5>
+              <p class="card-text">Soy graduado Economista, tengo 26 años y actualmente desempeño el rol de Analista
+                Comercial en una empresa del sector Retail. Fuera del ámbito profesional, disfruto dedicar mi tiempo libre
+                al gimnasio y al fútbol.
+              </p>
             </div>
-        
-            <!-- Resto del contenido de tu página -->
-        </section>
-
-        <section class="mt-2 mb-2">
-            <div class="row row-cols-1 row-cols-md-2 w-100 mx-auto">
-                <div class="col">
-                  <div class="card text-bg-dark m-2 ">
-                    <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_lamar_256.jpg" class="card-img-top rounded-circle mt-3  mx-auto"  alt="indumentaria" style="height: 100px ; width:100px;">
-                    <div class="card-body">
-                      <h5 class="card-title text-colour-title text-center">Marcos Zambrana</h5> <p class="card-text"> Mi nombre es Marcos y tengo 25 años. Soy técnico electricista de profesión, pero mis verdaderas pasiones son la programación, el basquet y la gastronomía </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark m-2 ">
-                      <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_michael_with_money_256.jpg" class="card-img-top rounded-circle mt-3 mx-auto"  alt="indumentaria" style="height: 100px ; width:100px;">
-                    <div class="card-body">
-                      <h5 class="card-title text-colour-title text-center">Maximiliano Morey</h5>
-                      <p class="card-text">Soy graduado Economista, tengo 26 años y actualmente desempeño el rol de Analista Comercial en una empresa del sector Retail. Mis hobby son el gimnasio y al fútbol.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark m-2 ">
-                    <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_bikers_biker4_256.jpg" class="card-img-top rounded-circle mt-3  mx-auto"  alt="indumentaria" style="height: 100px ; width:100px;">
-                    <div class="card-body">
-                      <h5 class="card-title text-colour-title text-center">Matias Medina</h5>
-                      <p class="card-text">Soy estudiante universitario de Ingeniería en Sistemas, con 26 años de edad. Mis pasatiempos incluyen el fútbol, los videojuegos y el mantenimiento de PCs.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark m-2">                 
-                    <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_cunningstunts_lady_256.jpg" class="card-img-top rounded-circle mt-3  mx-auto"  alt="indumentaria" style="height: 100px ; width:100px;">
-                    <div class="card-body">
-                      <h5 class="card-title text-colour-title text-center">Agustina Guitler</h5>
-                      <p class="card-text">Tengo 28 años y soy analista de microbiología. Me apasionan disciplinas como el Muay Thai, el Kickboxing, el Judo y competiciones de MOTOGP.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                    <div class="card text-bg-dark m-2">                 
-                    <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_lts_right_256.jpg" class="card-img-top rounded-circle mt-3  mx-auto"  alt="indumentaria" style="height: 100px ; width:100px;">
-                    <div class="card-body">
-                      <h5 class="card-title text-colour-title text-center">Fernando Abregu</h5>
-                      <p class="card-text">Con 30 años de edad, me desempeño como agente bursátil. Mis pasatiempos incluyen la lectura, el análisis financiero y explorar nuevos destinos a través de los viajes.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-
-        </section>
-
-
-        <footer class="bg-dark text-light py-5 text-center">
-            <div class="container mt-4">
-                <div class="row">
-                    <!-- Páginas del Navbar -->
-                    <div class="col-md my-3">
-                        <h5 class="text-colour-title">
-                        Enlaces
-                        </h5>
-                        <ul class="list-unstyled">
-                            <li><a class="nav-link" href="../index.html">Inicio</a></li>
-                            <li><a class="nav-link" href="../pages/errorpage.html">Servicios</a></li>
-                            <li><a class="nav-link" href="../pages/errorpage.html">Productos</a></li>
-                            <li><a class="nav-link" href="../pages/aboutUs.html">Contacto</a></li>
-                        </ul>
-                    </div>
-                   <!-- Logo -->
-                  <div class="col-md mt-4">
-                   <img src="../img/logorolling.webp" alt="Logo de la empresa" class="img-fluid " style="height: 100px">
-                  </div>
-                    <!-- Formulario de Contacto de la Página -->
-                    <div class="col-md my-3">
-                        <h5 class="mb-4 text-colour-title">Contacto de la Página</h5>
-                            <ul class="m-2 list-unstyled">
-                                <li class="m-3">Telefono:  0381 578-3030 </li>
-                                <li class="m-3"> Dirección:  General Paz 576 Piso 9 </li>
-                                <li class="m-3">E-mail:  hi@rollingcode.co </li>
-                            </ul>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark m-2 ">
+            <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_bikers_biker4_256.jpg"
+              class="card-img-top rounded-circle mt-3  mx-auto" alt="indumentaria" style="height: 100px ; width:100px;">
+            <div class="card-body">
+              <h5 class="card-title text-colour-title text-center">Matias Medina</h5>
+              <p class="card-text">Soy estudiante universitario de Ingeniería en Sistemas, con 26 años de edad. Mis
+                pasatiempos incluyen el fútbol, los videojuegos y el mantenimiento de PCs.</p>
             </div>
-        </footer>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark m-2">
+            <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_cunningstunts_lady_256.jpg"
+              class="card-img-top rounded-circle mt-3  mx-auto" alt="indumentaria" style="height: 100px ; width:100px;">
+            <div class="card-body">
+              <h5 class="card-title text-colour-title text-center">Agustina Guitler</h5>
+              <p class="card-text">Tengo 28 años y soy analista de microbiología. En mi tiempo libre, me apasionan
+                disciplinas como el Muay Thai, el Kickboxing y el Judo. Además, disfruto mucho siguiendo las emocionantes
+                competiciones de MotoGP.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card text-bg-dark m-2">
+            <img src="https://www.gta-growth.com/secciones/gtav/descargas/avatares/v_lts_right_256.jpg"
+              class="card-img-top rounded-circle mt-3  mx-auto" alt="indumentaria" style="height: 100px ; width:100px;">
+            <div class="card-body">
+              <h5 class="card-title text-colour-title text-center">Fernando Abregu</h5>
+              <p class="card-text">Con 30 años de edad, me desempeño como agente bursátil. Mis pasatiempos incluyen la
+                lectura, el análisis financiero y explorar nuevos destinos a través de los viajes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+    </section>
+  </main>
+  <footer class="bg-dark text-light py-5 text-center">
+    <div class="container mt-4">
+      <div class="row">
+        <!-- Páginas del Navbar -->
+        <div class="col-md my-3">
+          <h5 class="text-colour-title">
+            Enlaces
+          </h5>
+          <ul class="list-unstyled">
+            <li><a class="nav-link" href="../index.html">Inicio</a></li>
+            <li><a class="nav-link" href="../pages/errorpage.html">Servicios</a></li>
+            <li><a class="nav-link" href="../pages/errorpage.html">Productos</a></li>
+            <li><a class="nav-link" href="../pages/aboutUs.html">Contacto</a></li>
+          </ul>
+        </div>
+        <!-- Logo -->
+        <div class="col-md mt-4">
+          <img src="../img/logorolling.webp" alt="Logo de la empresa" class="img-fluid " style="height: 100px">
+        </div>
+        <!-- Formulario de Contacto de la Página -->
+        <div class="col-md my-3">
+          <h5 class="mb-4 text-colour-title">Contacto de la Página</h5>
+          <ul class="m-2 list-unstyled">
+            <li class="m-3">Telefono: 0381 578-3030 </li>
+            <li class="m-3"> Dirección: General Paz 576 Piso 9 </li>
+            <li class="m-3">E-mail: hi@rollingcode.co </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="/js/regLogin.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script type="module" src="/js/regLogin.js"></script>
+  <script src="/js/jquery-3.2.1.js"></script>
+
 </body>

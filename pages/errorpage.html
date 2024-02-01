@@ -37,13 +37,13 @@
                             <a class="nav-link" href="../pages/aboutUs..html">Acerca de nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-none" id="adminUserBtn">Administrar usuarios</a>
+                            <a class="nav-link d-none" href="/pages/adminUser.html" id="adminUserBtn">Administrar usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-none" id="adminProdBtn">Administrar productos</a>
+                            <a class="nav-link d-none" href="/pages/adminProd.html" id="adminProdBtn">Administrar productos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link d-none" id="prodSelected">Productos favoritos</a>
+                            <a class="nav-link d-none" href="/pages/favoriteProd.html" id="prodSelected">Productos favoritos</a>
                         </li>
                     </ul>
                     <button type="button" class="btn btnSignIn" data-bs-toggle="modal" data-bs-target="#signInModal"
@@ -106,7 +106,7 @@
                                         <input type="password" id="passSignIng" placeholder="Contraseña" required>
                                         <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
                                     </div>
-                                    <a data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>
+                                    <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>
                                 </div>
                                 <button id="btn_signIn" type="button" onclick="signIn()">Iniciar Sesion</button>
                             </form>
