@@ -29,7 +29,6 @@ Como invitado en la pagina principal encontramos el boton de inicio de sesion ta
 - Página Error 404
 - Página productos favoritos
 - Página de detalles
-- 
 
 ## **DEMO**
 - [ROLLINGMOTO](https://rollingtechnology.netlify.app)
