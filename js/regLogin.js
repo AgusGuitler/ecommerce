@@ -58,7 +58,7 @@ checkSesion()
 function checkSesion(){
     const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'));
     const role = getRoleUserLog()
-    const publicPages = ['/pages/aboutUs.html','/pages/favoriteProd.html','/pages/detailpage.html','/pages/errorpage.html']
+    const publicPages = ['/pages/aboutUs.html','/pages/favoriteProd.html','/pages/detailpage.html','/pages/errorpage.html', '/index.html']
     
     if(role !== true && !publicPages.includes(window.location.pathname)){
         window.location.replace('/index.html');
