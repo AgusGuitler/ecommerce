@@ -60,7 +60,7 @@
               <div class="modal-content bg-body-secondary">
                   <button type="button" class="btn-close bg-transparent mt-3 ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
               <div class=" form-container sign-up ">
-                  <form id="formSignUp" class="form-signUp">
+                  <form id="formSignUp" class="formSignUp">
                       <h1 class="mt-4">CREAR CUENTA</h1>
                       <div class="social-icons">
                           <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -70,22 +70,26 @@
                       </div>
                       <span>o crea una cuenta con tu mail</span>
                       <div class="form_inputs" >
-                          <input type="text" id="nameInput" placeholder="Nombre Completo">
-                          <input type="email"  id="emailInput" placeholder="Email" required>
+                          <input type="text" id="nameInput" placeholder="Nombre Completo" required>
+                          <input class="" type="email"  id="emailInput" placeholder="Email" required>
                           <div class="password">
                           <input type="password" id="passInput" placeholder="Contraseña" required>
-                          <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
+                            <div class="password_container">
+                            <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
+                            </div>
                           </div>
                           <div class="password">
-                          <input type="password" id="repPassInput" placeholder="Repetir Contraseña" class="" required>
+                          <input  type="password" id="repPassInput" placeholder="Repetir Contraseña" required>
+                          <div class="password_container">
                           <img id="repPassIcon" src="/src/eye-slash.svg" onclick="repPass()">
+                        </div>
                           </div>
                       </div>
                       <button id="btn_signUp"type="button" onclick="createUser()">REGISTRARSE</button>
                   </form>
               </div>
-              <div class="form-container  sign-in mt-5">
-                  <form class="">
+              <div class="form-container sign-in mt-4">
+                  <form class="formSignIn">
                       <h1>INICIAR SESION</h1>
                       <div class="social-icons">
                           <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
@@ -94,12 +98,15 @@
                           <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                       </div>
                       <span>o inicia sesion con</span>
-                      <div class="form_inputs ">
-                      <input type="email" id="emailSignIn" placeholder="Email" required>
-                      <div class="password">
-                          <input type="password" id="passSignIng"  placeholder="Contraseña" required>
-                          <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
-                      </div>
+                      <div class="form_inputs">
+                          <input class="" type="email" id="emailSignIn" placeholder="Email" required>
+                          <div class="password">
+                          <input class="" type="password"  id="passSignIng"  placeholder="Contraseña" required>
+                          <div class="password_container">
+                            <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
+                          </div>
+                          </div>
+
                           <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
                       </div>
                       <button id="btn_signIn" type="button" onclick="signIn()">Iniciar Sesion</button>

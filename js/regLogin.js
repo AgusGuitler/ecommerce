@@ -1,7 +1,6 @@
-import {validateInputsSignUp, validateSignIn } from "./hellpers.js";
+import {validateEmail, validateInputName, validateInputsSignUp, validatePassword, validateSignIn } from "./hellpers.js";
 
 //Elements
-let formSignUp= document.getElementById('formSignUp');
 let adminUserBtn = document.getElementById('adminUserBtn');
 let adminProdBtn = document.getElementById('adminProdBtn');
 let prodSelected = document.getElementById('prodSelected');
@@ -27,6 +26,32 @@ let passSignIn = document.getElementById('passSignIng');
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
+//Forms
+let formSignUp= document.getElementById('formSignUp');
+let formSignIn=document.getElementById('formSignIn');
+
+
+
+emailSignIn.addEventListener("blur",()=>{
+    validateEmail(emailSignIn)
+})
+
+passSignIn.addEventListener("blur",()=>{
+    validatePassword(passSignIn)
+})
+
+nameInp.addEventListener("blur",()=>{
+    validateInputName(nameInp)
+})
+
+emailInp.addEventListener("blur",()=>{
+    validateEmail(emailInp)
+})
+passwordInp.addEventListener("blur",()=>{
+    validatePassword(passwordInp)
+})
+
+
 
 checkSesion()
 export function checkSesion(){
@@ -76,7 +101,8 @@ loginBtn.addEventListener('click', () => {
 
 
 // Create User
-window.createUser = function(){
+function createUser(e){
+    e.preventDefault();
     const newUser = {
         nameUser : nameInp.value,
         emailUser : emailInp.value,
@@ -114,7 +140,7 @@ window.createUser = function(){
                 title: "Listo!",
                 text: "Usuario registrado"
               });
-            LimpiaFormulario()
+              cleanFormSignUp()
         }
     }
     else{
@@ -130,12 +156,12 @@ window.createUser = function(){
 }
 
 //SignIn User
-window.signIn = function(){
+ window.signIn = function(){
     const userSesion = {
         emailUser : emailSignIn.value,
         passUser : passSignIn.value 
     }
-    if(validateSignIn(emailSignIn))
+    if(validateEmail(emailSignIn)&&validatePassword(passSignIn))
     {
             JSON.parse(sessionStorage.getItem('userSesion'))
                 if (userReg.some((v)=>{
@@ -187,7 +213,7 @@ window.signIn = function(){
     }
 }
 // Función para crear el usuario administrador
-function createAdmin() {
+window.createAdmin = function() {
 
     // Verifica si el usuario administrador ya existe
     if (!adminExists(usersAdmin)) {
@@ -213,12 +239,12 @@ function createAdmin() {
 window.onload = createAdmin;
 
 
-function LimpiaFormulario(){
-    formSignUp.reset()
-    nameInp.className='form-control'
-    emailInp.className='form-control'
-    passwordInp.className='form-control'
-    repPassInp.className='form-control'
+window.cleanFormSignUp =function(){
+    formSignUp.clear();
+    nameInp.classList="form-control";
+    emailInp.classList="form-control"
+    passwordInp.classList="form-control"
+    repPassInp.classList="form-control"
 }
 
 let showPass = false;

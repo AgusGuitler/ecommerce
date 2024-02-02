@@ -41,8 +41,14 @@
     text-align: center;
     transition: all 0.6s ease-in-out;
 }
-.form-signUp{
+.formSignUp{
     margin-top: 20px;
+    min-width: 244px;
+}
+
+.formSignIn{
+    margin-top: 40px;
+    min-width: 244px;
 }
 .form_inputs{
     display: flex;
@@ -197,9 +203,7 @@
 }
 .password{
     margin-top: 12px;
-    display: inline-block;
-    position: relative;
-    border: 1px solid #333;
+    display: flex;
     background-color: #fff;
    
 }
@@ -214,9 +218,6 @@
     border: none;
     outline: none;
 }
-.password img{
-    position: absolute;
-    top: 20px;
-    left: 90%;
-    cursor: pointer;
+.password_container img{
+    margin: 18px 4px 0 0;
 }
