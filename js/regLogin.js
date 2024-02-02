@@ -1,7 +1,6 @@
-import {validateInputsSignUp, validateSignIn } from "./hellpers.js";
+import {getRoleUserLog, validateEmail, validateInputName, validateInputsSignUp, validatePassword, validateSignIn } from "./hellpers.js";
 
 //Elements
-let formSignUp= document.getElementById('formSignUp');
 let adminUserBtn = document.getElementById('adminUserBtn');
 let adminProdBtn = document.getElementById('adminProdBtn');
 let prodSelected = document.getElementById('prodSelected');
@@ -27,11 +26,46 @@ let passSignIn = document.getElementById('passSignIng');
 const container = document.getElementById('container');
 const registerBtn = document.getElementById('register');
 const loginBtn = document.getElementById('login');
+//Forms
+let formSignUp= document.getElementById('formSignUp');
+let formSignIn=document.getElementById('formSignIn');
+
+
+formSignIn.addEventListener('submit', signIn)
+formSignUp.addEventListener('submit', createUser)
+emailSignIn.addEventListener("blur",()=>{
+    validateEmail(emailSignIn)
+})
+
+passSignIn.addEventListener("blur",()=>{
+    validatePassword(passSignIn)
+})
+
+nameInp.addEventListener("blur",()=>{
+    validateInputName(nameInp)
+})
+
+emailInp.addEventListener("blur",()=>{
+    validateEmail(emailInp)
+})
+passwordInp.addEventListener("blur",()=>{
+    validatePassword(passwordInp)
+})
+
+
 
 checkSesion()
-export function checkSesion(){
-    const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'))
-    if (sesionSignIn == null) {
+function checkSesion(){
+    const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'));
+    const role = getRoleUserLog()
+    const publicPages = ['/index.html','/pages/aboutUs.html','/pages/favoriteProd.html','/pages/detailpage.html','/pages/errorpage.html']
+    
+    if(role !== true && !publicPages.includes(window.location.pathname)){
+        window.location.replace('/index.html');
+    }; 
+
+ 
+    if (sesionSignIn === null) {
         adminUserBtn.href='/index.html',
         adminProdBtn.href='/index.html',
         prodSelected.href='/index.html'
@@ -40,8 +74,9 @@ export function checkSesion(){
     if (sesionSignIn!=null) {
         btnSignIn.className='d-none';
         btnSignOut.className='btn btnSignOut';
+        prodSelected.className='nav-link'
 
-        if (sesionSignIn.emailUser === "admin@example.com") {
+        if (sesionSignIn.admin === true) {
             btnSignIn.className='d-none';
             btnSignOut.className='btn btnSignOut';
             prodSelected.className='nav-link';
@@ -49,16 +84,9 @@ export function checkSesion(){
             adminUserBtn.className='nav-link';
         
             }
-            else{
-            prodSelected.className='nav-link';
-            document.getElementById('btnSignIn').className='d-none';
-            document.getElementById('btnSignOut').className='btn btnSignOut';
-            }
         }
-        
-    
 
-}
+    }
 
 function adminExists(usersAdmin) {
     return usersAdmin.some(user => user.nameUser === 'admin');
@@ -76,7 +104,7 @@ loginBtn.addEventListener('click', () => {
 
 
 // Create User
-window.createUser = function(){
+function createUser(e){
     const newUser = {
         nameUser : nameInp.value,
         emailUser : emailInp.value,
@@ -84,6 +112,7 @@ window.createUser = function(){
         admin : false
 
     }
+    e.preventDefault()
     if (validateInputsSignUp(nameInp,emailInp,passwordInp)){
         if (userReg.some((v)=>{
             return v.emailUser === emailInp.value;
@@ -114,7 +143,6 @@ window.createUser = function(){
                 title: "Listo!",
                 text: "Usuario registrado"
               });
-            LimpiaFormulario()
         }
     }
     else{
@@ -130,64 +158,47 @@ window.createUser = function(){
 }
 
 //SignIn User
-window.signIn = function(){
-    const userSesion = {
-        emailUser : emailSignIn.value,
-        passUser : passSignIn.value 
-    }
-    if(validateSignIn(emailSignIn))
-    {
-            JSON.parse(sessionStorage.getItem('userSesion'))
-                if (userReg.some((v)=>{
-                    return v.emailUser === emailSignIn.value && v.passUser === passSignIn.value;
-                })) {
+    function signIn(e){
+        e.preventDefault()
+        if(validateEmail(emailSignIn)&&validatePassword(passSignIn))
+        {
+            let user = userReg.find(v => v.emailUser === emailSignIn.value && v.passUser === passSignIn.value) || 
+                       usersAdmin.find(v => v.emailUser === emailSignIn.value && v.passUser === passSignIn.value);
+            if (user) {
+                const userSesion = {
+                    emailUser : user.emailUser,
+                    passUser : user.passUser,
+                    admin : user.admin
+                }
                 sessionStorage.setItem('userSesion',JSON.stringify(userSesion));
-                prodSelected.className='nav-link';
                 checkSesion()
                 Swal.fire({
                     confirmButtonColor: "#ff5e00",
                     icon: "success",
                     text: "Inicio de sesion exitoso!",
-                  });
-                  setTimeout(()=>{
+                });
+                setTimeout(()=>{
                     $('#signInModal').modal('hide')
-                    },1500);
-                    
-                }
-                else if(usersAdmin.some((v)=>{
-                    return v.emailUser === emailSignIn.value && v.passUser === passSignIn.value
-                })){
-                    sessionStorage.setItem('userSesion',JSON.stringify(userSesion));
-                    checkSesion()
-                    Swal.fire({
-                        confirmButtonColor: "#ff5e00",
-                        icon: "success",
-                        text: "Inicio de sesion exitoso!",
-                      });
-                    setTimeout(()=>{
-                        $('#signInModal').modal('hide')
-                    },1500);
-                }
-                else{
-                    Swal.fire({
-
-                        confirmButtonColor: "#ff5e00",
-                        icon: "error",
-                        text: "Revisa usuario o contraseña",
-                      });
-                }
+                },1500);
+            } else {
+                Swal.fire({
+                    confirmButtonColor: "#ff5e00",
+                    icon: "error",
+                    text: "Revisa usuario o contraseña",
+                });
+            }
+        }
+        else{
+            Swal.fire({
+                iconColor: "#ff5e00",
+                confirmButtonColor: "#ff5e00",
+                icon: "info",
+                text: "Todos los campos son obligatorios",
+            });
+        }
     }
-    else{
-        Swal.fire({
-            iconColor: "#ff5e00",
-            confirmButtonColor: "#ff5e00",
-            icon: "info",
-            text: "Todos los campos son obligatorios",
-          });
-    }
-}
 // Función para crear el usuario administrador
-function createAdmin() {
+window.createAdmin = function() {
 
     // Verifica si el usuario administrador ya existe
     if (!adminExists(usersAdmin)) {
@@ -213,12 +224,12 @@ function createAdmin() {
 window.onload = createAdmin;
 
 
-function LimpiaFormulario(){
-    formSignUp.reset()
-    nameInp.className='form-control'
-    emailInp.className='form-control'
-    passwordInp.className='form-control'
-    repPassInp.className='form-control'
+window.cleanFormSignUp =function(){
+    formSignUp.clear();
+    nameInp.classList="form-control";
+    emailInp.classList="form-control"
+    passwordInp.classList="form-control"
+    repPassInp.classList="form-control"
 }
 
 let showPass = false;
@@ -296,4 +307,12 @@ window.logOut = function(){
     },1500)
 }});
     
+}
+function validateRol(){
+    const role = getRoleUserLog();
+
+    if (role!==true) {
+        window.location.replace('/index.html')
+    }
+
 }

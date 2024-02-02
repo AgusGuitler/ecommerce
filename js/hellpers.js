@@ -8,6 +8,16 @@ export function validateInputReq(input){
         return false;
     }
 }
+export function validateInputName(input){
+  if (input.value.trim().length>3  && input.value.trim().length <= 200) {
+      input.className ="form-control is-valid";
+      return true;
+  }
+  else{
+      input.className ="form-control is-invalid"
+      return false;
+  }
+}
 export function validateEmail(input){
     const regExEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     if (regExEmail.test(input.value)) {
@@ -31,6 +41,7 @@ export function validatePassword(input){
     }
 }
 
+
 export function validateInputsSignUp(nameInp, emailInp, passwordInp){
     if (validateInputReq(nameInp)&&validateEmail(emailInp)&&validatePassword(passwordInp)) {
         return true;
@@ -38,11 +49,11 @@ export function validateInputsSignUp(nameInp, emailInp, passwordInp){
         return false;
     }
 }
-export function validateSignIn(emailSignIn){
-    if (validateEmail(emailSignIn)) {
-        return true;
+export function validateSignIn(emailSignIn, passSignIn){
+    if (validateEmail(emailSignIn)&&validatePassword(passSignIn)) {
+      return true;
     }else{
-        return false;
+      return false;
     }
 }
 //VALIDATES FORM INPUTS PRODUCT
@@ -142,3 +153,13 @@ export function validateAll(
       return false;
     }
 };
+
+export function getRoleUserLog() {
+  const user = JSON.parse(sessionStorage.getItem("userSesion"));
+
+  if (user !== null) {
+    return user.admin;
+  } else {
+    return "invitado";
+  }
+}
