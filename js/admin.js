@@ -36,11 +36,11 @@ inputDescription.addEventListener("blur", () => {
 validateInputDescription(inputDescription);
 });
 
-inputDescription.addEventListener("blur", () => {
+inputCategory.addEventListener("blur", () => {
 validateInputCategory(inputCategory);
 });
 
-inputDescription.addEventListener("blur", () => {
+inputStock.addEventListener("blur", () => {
 validateInputStock(inputStock);
 });
 
@@ -125,6 +125,7 @@ function saveProductEdited() {
         arrayProducts[indexProduct].code = inputCode.value;
         arrayProducts[indexProduct].name = inputName.value;
         arrayProducts[indexProduct].description = inputDescription.value;
+        arrayProducts[indexProduct].stock = inputStock.value;
         arrayProducts[indexProduct].category= inputCategory.value;
         arrayProducts[indexProduct].price = inputPrice.value;
         arrayProducts[indexProduct].imgUrl = inputImgUrl.value;
@@ -176,7 +177,7 @@ function listProducts() {
             <td>${element.category}</td>
             <td>${element.stock}</td>
             <td>$ ${element.price}</td>
-            <td><a href="${element.imgUrl}" target="_blank" title="Ver Imagen">${element.imgUrl}</a></td>
+            <td><a href="${element.imgUrl}" target="_blank" title="Ver Imagen">Ver Imagen</a></td>
             <td class="">
             <div class="d-flex">
             <a href='#titulo' class="btn btn-warning mx-1" onclick="prepareEdition('${element.code}')">Editar</a>
