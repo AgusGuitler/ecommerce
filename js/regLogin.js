@@ -308,11 +308,3 @@ window.logOut = function(){
 }});
     
 }
-function validateRol(){
-    const role = getRoleUserLog();
-
-    if (role!==true) {
-        window.location.replace('/index.html')
-    }
-
-}
