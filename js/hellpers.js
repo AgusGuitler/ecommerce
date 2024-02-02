@@ -10,7 +10,7 @@ export function validateInputReq(input){
 }
 export function validateInputName(input){
   if (input.value.trim().length>3  && input.value.trim().length <= 200) {
-      input.className ="form-control is-valid"
+      input.className ="form-control is-valid";
       return true;
   }
   else{
@@ -153,3 +153,13 @@ export function validateAll(
       return false;
     }
 };
+
+export function getRoleUserLog() {
+  const user = JSON.parse(sessionStorage.getItem("userSesion"));
+
+  if (user !== null) {
+    return user.admin;
+  } else {
+    return "invitado";
+  }
+}
