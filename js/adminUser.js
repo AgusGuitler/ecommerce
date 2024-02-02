@@ -27,9 +27,16 @@ function listUserRegister(){
     });
 }
 function listUserAdmmin(){
-    tableUsersAdmin.innerHTML="";
-    usersAdmin.forEach(element => {
-        tableUsersAdmin.innerHTML+=`
+  tableUsersAdmin.innerHTML="";
+  usersAdmin.forEach(element => {
+    if (element.emailUser === 'admin@example.com') {
+        tableUsersAdmin.innerHTML += `
+        <tr class="fs-5">
+            <td class="">${element.nameUser}</td>
+            <td class="">${element.emailUser}</td>
+        </tr>`
+    } else {
+        tableUsersAdmin.innerHTML += `
         <tr class="fs-5">
             <td class="">${element.nameUser}</td>
             <td class="">${element.emailUser}</td>
@@ -38,7 +45,9 @@ function listUserAdmmin(){
                 <button class="btn btn-danger mx-auto" type="button"  onclick="deleteAdmin('${element.nameUser}')">BORRAR</button>
             </td>
         </tr>`
-    });
+        console.log("ingreso a else");
+    }
+});
 }
 
 window.assingAdmin = function(user){
