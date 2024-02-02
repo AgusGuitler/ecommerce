@@ -36,11 +36,11 @@ inputDescription.addEventListener("blur", () => {
 validateInputDescription(inputDescription);
 });
 
-inputDescription.addEventListener("blur", () => {
+inputCategory.addEventListener("blur", () => {
 validateInputCategory(inputCategory);
 });
 
-inputDescription.addEventListener("blur", () => {
+inputStock.addEventListener("blur", () => {
 validateInputStock(inputStock);
 });
 
