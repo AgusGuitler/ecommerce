@@ -60,7 +60,7 @@ function checkSesion(){
     const role = getRoleUserLog()
     const publicPages = ['/index.html','/pages/aboutUs.html','/pages/favoriteProd.html','/pages/detailpage.html','/pages/errorpage.html']
     
-    if(role !== true && !publicPages.includes(window.location.pathname)){
+    if(role !== true || !publicPages.includes(window.location.pathname)){
         window.location.replace('/index.html');
     }; 
 
