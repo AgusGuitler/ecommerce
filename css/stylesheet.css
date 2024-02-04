@@ -68,4 +68,29 @@
   .text-colour-title {
      color: #ff5e00;}
 
-  
+     .border-filter-custom { 
+      border-radius: 5px; 
+      border-color: #ff5e00;
+      text-align: center;
+      } 
+
+    /* se agrega la clase de filtro por nombre */
+
+    .product-custom-transition { 
+      transition: all 0.3s ease-out;
+    }
+    
+    .filter{
+      visibility: hidden;
+      opacity: 0;
+      order: 1  ;
+    }
+
+    /* diseño para buscador */
+    .search-icon {
+      left: 15px;
+   }
+   
+   .eye-icon {
+      right: 15px;
+   }
