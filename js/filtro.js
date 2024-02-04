@@ -34,3 +34,19 @@ $(document).ready(function(){
 		} setTimeout(showAll,400);
 	});
 });
+
+ // filtro por nombre 
+document.addEventListener("keyup", (e) => {
+	if (e.target.matches(".filter-card")){
+	  document.querySelectorAll(".product-custom-transition").forEach((cardProducts)=> {
+		cardProducts.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+		?cardProducts.classList.remove("filter")
+		:cardProducts.classList.add("filter");
+	  });
+	  if (e.key==="Escape"){
+		e.target.value="";
+  
+	  }
+	}
+  });
+  
