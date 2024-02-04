@@ -58,13 +58,15 @@ checkSesion()
 function checkSesion(){
     const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'));
     
+    
+
     const role = getRoleUserLog()
     const publicPages = ['/index.html','/pages/aboutUs.html','/pages/favoriteProd.html','/pages/detailpage.html','/pages/errorpage.html']
     
     if(role !== true && !publicPages.includes(window.location.pathname)){
-        window.location.replace('/index.html');
+        window.location.replace('/');
     };
-
+    console.log(window.location.pathname);
     if (sesionSignIn === null) {
         adminUserBtn.href='/index.html',
         adminProdBtn.href='/index.html',
