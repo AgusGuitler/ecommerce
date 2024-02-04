@@ -57,14 +57,12 @@ passwordInp.addEventListener("blur",()=>{
 checkSesion()
 function checkSesion(){
     const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'));
-    
-    
 
     const role = getRoleUserLog()
-    const publicPages = ['/index.html','/pages/aboutUs.html','/pages/favoriteProd.html','/pages/detailpage.html','/pages/errorpage.html']
+    const publicPages = ['/index.html','/pages/abouts','/pages/favoriteProd','/pages/detailpage','../pages/errorpage.html']
     
     if(role !== true && !publicPages.includes(window.location.pathname)){
-        window.location.replace('/');
+        window.location.replace('/index.html');
     };
     console.log(window.location.pathname);
     if (sesionSignIn === null) {
