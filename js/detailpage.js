@@ -38,27 +38,29 @@ window.enabledBtnFav = function() {
     const favoriteProduct = arrayProducts.find((element) => {
         return element.code === productId;
     })
-    if (sesionCheck == null) {
+    if (sesionCheck !== null) {
+        if(arrFavoriteProducts.some(product => product.code === favoriteProduct.code)){
+            Swal.fire({
+                confirmButtonColor: "#ff5e00",
+                title: "Ups!!!",
+                text: "Este producto ya esta en tu lista de favoritos",
+                icon: "info"
+            });
+        }
+        else{
+            let icono = document.createElement("i")
+            icono.className="fa-solid fa-check";
+            addFavorite.appendChild(icono);
+            arrFavoriteProducts.push(favoriteProduct);
+            localStorage.setItem('favoriteProducts', JSON.stringify(arrFavoriteProducts));
+        }
+    }
+    else{
         Swal.fire({
             confirmButtonColor: "#ff5e00",
             title: "Ups!!!",
             text: "Para añadir productos a favoritos debes iniciar sesion!!",
             icon: "info"
         });
-    }
-    else if(arrFavoriteProducts.includes(favoriteProduct)){
-        Swal.fire({
-            confirmButtonColor: "#ff5e00",
-            title: "Ups!!!",
-            text: "Este producto ya esta en tu lista de favoritos",
-            icon: "info"
-        });
-    }
-    else{
-        let icono = document.createElement("i")
-        icono.className="fa-solid fa-check";
-        addFavorite.appendChild(icono);
-        arrFavoriteProducts.push(favoriteProduct);
-        localStorage.setItem('favoriteProducts', JSON.stringify(arrFavoriteProducts));
     }
 }
