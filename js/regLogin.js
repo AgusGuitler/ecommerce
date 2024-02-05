@@ -1,4 +1,4 @@
-import {getRoleUserLog, validateEmail, validateInputName, validateInputsSignUp, validatePassword, validateSignIn } from "./hellpers.js";
+import {getRoleUserLog, validateEmail, validateInputName, validateInputsSignUp, validatePassword} from "./hellpers.js";
 
 //Elements
 let adminUserBtn = document.getElementById('adminUserBtn');
@@ -55,15 +55,18 @@ passwordInp.addEventListener("blur",()=>{
 
 checkSesion()
 function checkSesion(){
-    const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'));
+
+ const sesionSignIn = JSON.parse(sessionStorage.getItem('userSesion'));
+ 
  const role = getRoleUserLog()
  
- const publicPages = ['/index.html','/pages/aboutus','/pages/favoriteProd','/pages/detailpage.html','/pages/errorpage']
+ const publicPages = ['/index.html','/pages/aboutus','/pages/favoriteprod','/pages/detailpage.html','/pages/errorpage']
+
     
     if(role !== true && !publicPages.includes(window.location.pathname)){
         window.location.replace('/index.html');
     };
-
+    console.log(window.location.pathname);
     if (sesionSignIn === null) {
         adminUserBtn.href='/index.html',
         adminProdBtn.href='/index.html',
@@ -276,42 +279,8 @@ window.passSg = function(){
     }
 }
 window.logOut = function(){
-    const swalWithBootstrapButtons = Swal.mixin({
-        customClass: {
-          confirmButton: "btn btn-success",
-          cancelButton: "btn btn-danger"
-        },
-        buttonsStyling: false
-      });
-      swalWithBootstrapButtons.fire({
-        title: "Desea cerrar sesion?",
-        text: "Si cierra sesion se eliminara sus productos favoritos",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Si, Cerrar Sesion!",
-        cancelButtonText: "No, Mantener sesion iniciada!",
-        reverseButtons: true
-      }).then((result) => {
-        if (result.isConfirmed) {
-          swalWithBootstrapButtons.fire({
-            title: "Listo!!!",
-            text: "Sesion finalizada",
-            icon: "success",
-            confirmButtonColor: "#ff5e00",
-        });
-        localStorage.removeItem('favoriteProducts')
-         sessionStorage.clear()
-         setTimeout(()=>{
-        window.location ="/index.html";
-    },1500)
-}});
+    localStorage.removeItem('favoriteProducts');
+    sessionStorage.clear();
+    window.location ="/index.html";
     
-}
-function validateRol(){
-    const role = getRoleUserLog();
-
-    if (role!==true) {
-        window.location.replace('/index.html')
-    }
-
 }

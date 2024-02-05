@@ -31,7 +31,7 @@ Como invitado en la pagina principal encontramos el boton de inicio de sesion ta
 - Página de detalles
 
 ## **DEMO**
-- [ROLLINGMOTO](https://rollingtechnology.netlify.app)
+- [ROLLINGMOTO](https://rollingmotos.netlify.app/index.html)
 - Usuario Administrador (Usuario: "admin@example.com". Password: "Admin2023")
 
 
