@@ -17,143 +17,140 @@
   <title>Rolling Moto</title>
 </head>
 <body class="bg-body-secondary">
-    <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg nav navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/index.html">
-                    <img src="/img/logorolling.webp" class="m-2" alt="logo" style="height: 50px;">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-3">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="/index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../pages/aboutUs..html">Acerca de nosotros</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-none" href="/pages/adminUser.html" id="adminUserBtn">Administrar usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-none" href="/pages/adminProd.html" id="adminProdBtn">Administrar productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-none" href="/pages/favoriteProd.html" id="prodSelected">Productos favoritos</a>
-                        </li>
-                    </ul>
-                    <button type="button" class="btn btnSignIn" data-bs-toggle="modal" data-bs-target="#signInModal"
-                        id="btnSignIn">
-                        INICIAR SESION
-                    </button>
-                    <button type="button" class="btn btnSignOut d-none" data-bs-toggle="modal" id="btnSignOut"
-                        onclick="logOut()">
-                        CERRAR SESION
-                    </button>
-                </div>
-            </div>
+    <header>
+        <nav class="navbar navbar-expand-lg nav navbar-dark bg-dark sticky-top">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="/index.html">
+                <img src="/img/logorolling.webp" class="mx-2" alt="logo" style="height: 50px;">
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-3">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="/pages/aboutUs.html">Acerca de nosotros</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link d-none" id="adminUserBtn" href="/pages/adminUser.html">Administrar usuarios</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link d-none " id="adminProdBtn" href="/pages/adminProd.html">Administrar productos</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link d-none" id="prodSelected" href="/pages/favoriteProd.html">Productos favoritos</a>
+                  </li>
+                  </ul>
+                  <button type="button" class="btn btnSignIn" data-bs-toggle="modal" data-bs-target="#signInModal" id="btnSignIn">
+                    INICIAR SESION
+                  </button>
+                  <button type="button" class="btn btnSignOut d-none" data-bs-toggle="modal" id="btnSignOut" onclick="logOut()">
+                    CERRAR SESION
+                  </button>
+              </div>
+          </div>
         </nav>
-        <!-- Modal -->
+    
         <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog ">
-                <div class="containerModal p-0 " id="container">
-                    <div class="modal-content bg-body-secondary">
-                        <button type="button" class="btn-close bg-transparent mt-3 ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <div class="form-container sign-up ">
-                        <div>
-                            <h1 class="mt-4">CREAR CUENTA</h1>
-                            <div class="social-icons">
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                            <span>o crea una cuenta con tu mail</span>
-                            <form class="form_inputs" id="formSignUp" >
-                                <input type="text" id="nameInput" placeholder="Nombre Completo" required>
-                                <input class="" type="email"  id="emailInput" placeholder="Email" required>
-                                <div class="password">
-                                <input type="password" id="passInput" placeholder="Contraseña" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos." required>
-                                  <div class="password_container">
-                                  <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
-                                  </div>
-                                </div>
-                                <div class="password">
-                                <input  type="password" id="repPassInput" placeholder="Repetir Contraseña" required>
+          <div class="modal-dialog ">
+              <div class="containerModal p-0 " id="container">
+                  <div class="modal-content bg-body-secondary">
+                      <button type="button" class="btn-close bg-transparent mt-3 ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <div class="form-container sign-up ">
+                      <div>
+                          <h1 class="mt-4">CREAR CUENTA</h1>
+                          <div class="social-icons">
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                          </div>
+                          <span>o crea una cuenta con tu mail</span>
+                          <form class="form_inputs" id="formSignUp" >
+                              <input type="text" id="nameInput" placeholder="Nombre Completo" required>
+                              <input class="" type="email"  id="emailInput" placeholder="Email" required>
+                              <div class="password">
+                              <input type="password" id="passInput" placeholder="Contraseña" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos." required>
                                 <div class="password_container">
-                                <img id="repPassIcon" src="/src/eye-slash.svg" onclick="repPass()">
+                                <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
                                 </div>
-                                </div>
-                                <button id="btn_signUp" type="submit">REGISTRARSE</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="form-container sign-in mt-4">
-                        <div class="formSignIn">
-                            <h1>INICIAR SESION</h1>
-                            <div class="social-icons">
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
-                                <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                            <span>o inicia sesion con</span>
-                            <form class="form_inputs" id="formSignIn">
-                                <input class="" type="email" id="emailSignIn" placeholder="Email" required>
-                                <div class="password">
-                                <input class="" type="password"  id="passSignIng" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos." placeholder="Contraseña" required>
-                                <div class="password_container">
-                                  <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
-                                </div>
-                                </div>
-                                <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
-                                <button id="btn_signIn" type="submit">Iniciar Sesion</button>
-                            </form>
-                        </div>
-                    </div> 
-                    <div class="toggle-container">
-                        <div class="toggle">
-                            <div class="toggle-panel toggle-left">
-                                <p>Si ya tienes una cuenta</p>
-                                <button class="hidden" id="login">INICIAR SESION</button>
-                            </div>
-                            <div class="toggle-panel toggle-right">
-                                <p>Si no estas registrado</p>
-                                <button class="hidden" id="register">CREAR CUENTA</button>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+                              </div>
+                              <div class="password">
+                              <input  type="password" id="repPassInput" placeholder="Repetir Contraseña" required>
+                              <div class="password_container">
+                              <img id="repPassIcon" src="/src/eye-slash.svg" onclick="repPass()">
+                              </div>
+                              </div>
+                              <button id="btn_signUp" type="submit">REGISTRARSE</button>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="form-container sign-in mt-4">
+                      <div class="formSignIn">
+                          <h1>INICIAR SESION</h1>
+                          <div class="social-icons">
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
+                              <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                          </div>
+                          <span>o inicia sesion con</span>
+                          <form class="form_inputs" id="formSignIn">
+                              <input class="" type="email" id="emailSignIn" placeholder="Email" required>
+                              <div class="password">
+                              <input class="" type="password"  id="passSignIng" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos." placeholder="Contraseña" required>
+                              <div class="password_container">
+                                <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
+                              </div>
+                              </div>
+                              <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
+                              <button id="btn_signIn" type="submit">Iniciar Sesion</button>
+                          </form>
+                      </div>
+                  </div> 
+                  <div class="toggle-container">
+                      <div class="toggle">
+                          <div class="toggle-panel toggle-left">
+                              <p>Si ya tienes una cuenta</p>
+                              <button class="hidden" id="login">INICIAR SESION</button>
+                          </div>
+                          <div class="toggle-panel toggle-right">
+                              <p>Si no estas registrado</p>
+                              <button class="hidden" id="register">CREAR CUENTA</button>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
               </div>
             </div>
+          </div>
         <!-- Modal -->
-        <div class="modal fade" id="restorePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-              <form action="/pages/errorpage.html">
-              <div class="modal-content mx-5 bg-dark text-bg-dark">
-               <div class="modal-header">
-                   <h1 class="modal-title fs-4" id="exampleModalLabel">Recuperar contraseña</h1>
-                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-               </div>
-               <div class="modal-body justify-content-center">
-                   <p>Ingrese el correo con el que sea registrado</p>
-                   <p>Y te enviaremos un correo para continuar</p>
-                   <input type="email" name="email" autocomplete="none" class="p-2" placeholder="Email" required>
-               </div>
-               <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-               <button type="submit" class="btn btn-custom-hoveer btn-custom-colours text-light">Enviar</button>
-               </div>
-               </div>
-                </form>
-            </div>
+          <div class="modal fade" id="restorePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+           <div class="modal-dialog modal-dialog-centered">
+             <form action="/pages/errorpage.html">
+             <div class="modal-content mx-5 bg-dark text-bg-dark">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-4" id="exampleModalLabel">Recuperar contraseña</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body justify-content-center">
+                  <p>Ingrese el correo con el que sea registrado</p>
+                  <p>Y te enviaremos un correo para continuar</p>
+                  <input type="email" name="email" autocomplete="none" class="p-2" placeholder="Email" required>
+              </div>
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-custom-hoveer btn-custom-colours text-light">Enviar</button>
+              </div>
+              </div>
+               </form>
            </div>
-    </header>
+          </div>
+      </header>
 
     <main>
         <div class="contenedor1">
