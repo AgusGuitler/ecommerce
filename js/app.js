@@ -12,7 +12,7 @@ function CrearCards() {
           <p class="card-text"> Si quieres ver más información sobre los productos dale click al boton de detalle </p>
           <p class="card-text fw-bold fs-4 text-center">$${element.price}</p>
           <div class="text-center">
-          <a href="../pages/errorpage.html" class="btn btn-dark btn-custom-hoveer btn-custom-colours"  >
+          <a href="../pages/errorpage" class="btn btn-dark btn-custom-hoveer btn-custom-colours"  >
           Comprar
           </a>
        
