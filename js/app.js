@@ -9,7 +9,7 @@ function CrearCards() {
         <img src="${element.imgUrl}" class="card-img-top" style="height: 300px" alt="${element.description}" >
         <div class="card-body ">
           <figcaption class="fw-bold card-title  text-center text-colour-title">${element.name}</figcaption>
-          <p class="card-text"> Si quieres ver más información sobre los podructos dale click al boton de detalle </p>
+          <p class="card-text"> Si quieres ver más información sobre los productos dale click al boton de detalle </p>
           <p class="card-text fw-bold fs-4 text-center">$${element.price}</p>
           <div class="text-center">
           <a href="../pages/errorpage.html" class="btn btn-dark btn-custom-hoveer btn-custom-colours"  >
