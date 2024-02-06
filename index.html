@@ -1,339 +1,636 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ecommerce de accesorios y repuestos de moto" />
-  <meta name="author" content="Grupo N°5" />
-  <meta name="keywords" content="Repuestos de motos" />
-  <!-- Enlace a CSS de Bootstrap -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link rel="stylesheet" href="./css/stylesheet.css" />
-  <link rel="stylesheet" href="/css/regLogin.css">
-  <link rel="shortcut icon" href="/img/icon.webp" type="image/x-icon">
-  <title>Rolling Moto</title>
-</head>
-<body class="bg-body-secondary">
-  <header>
-    <nav class="navbar navbar-expand-lg nav navbar-dark bg-dark sticky-top">
-      <div class="container-fluid">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ecommerce de accesorios y repuestos de moto"
+    />
+    <meta name="author" content="Grupo N°5" />
+    <meta name="keywords" content="Repuestos de motos" />
+    <!-- Enlace a CSS de Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/stylesheet.css" />
+    <link rel="stylesheet" href="/css/regLogin.css" />
+    <link rel="shortcut icon" href="/img/icon.webp" type="image/x-icon" />
+    <title>Rolling Moto</title>
+  </head>
+  <body class="bg-body-secondary">
+    <header>
+      <nav class="navbar navbar-expand-lg nav navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
           <a class="navbar-brand" href="/index.html">
-            <img src="/img/logorolling.webp" class="mx-2" alt="logo" style="height: 50px;">
+            <img
+              src="/img/logorolling.webp"
+              class="mx-2"
+              alt="logo"
+              style="height: 50px"
+            />
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-3">
-                  <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/pages/aboutUs.html">Acerca de nosotros</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link d-none" id="adminUserBtn" href="/pages/adminUser.html">Administrar usuarios</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link d-none " id="adminProdBtn" href="/pages/adminProd.html">Administrar productos</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link d-none" id="prodSelected" href="/pages/favoriteProd.html">Productos favoritos</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 px-3">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/index.html"
+                  >Inicio</a
+                >
               </li>
-              </ul>
-              <button type="button" class="btn btnSignIn" data-bs-toggle="modal" data-bs-target="#signInModal" id="btnSignIn">
-                INICIAR SESION
-              </button>
-              <button type="button" class="btn btnSignOut d-none" data-bs-toggle="modal" id="btnSignOut" onclick="logOut()">
-                CERRAR SESION
-              </button>
+              <li class="nav-item">
+                <a class="nav-link" href="/pages/aboutUs.html"
+                  >Acerca de nosotros</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link d-none"
+                  id="adminUserBtn"
+                  href="/pages/adminUser.html"
+                  >Administrar usuarios</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link d-none"
+                  id="adminProdBtn"
+                  href="/pages/adminProd.html"
+                  >Administrar productos</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link d-none"
+                  id="prodSelected"
+                  href="/pages/favoriteProd.html"
+                  >Productos favoritos</a
+                >
+              </li>
+            </ul>
+            <button
+              type="button"
+              class="btn btnSignIn"
+              data-bs-toggle="modal"
+              data-bs-target="#signInModal"
+              id="btnSignIn"
+            >
+              INICIAR SESION
+            </button>
+            <button
+              type="button"
+              class="btn btnSignOut d-none"
+              data-bs-toggle="modal"
+              id="btnSignOut"
+              onclick="logOut()"
+            >
+              CERRAR SESION
+            </button>
           </div>
-      </div>
-    </nav>
+        </div>
+      </nav>
 
-    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog ">
-          <div class="containerModal p-0 " id="container">
-              <div class="modal-content bg-body-secondary">
-                  <button type="button" class="btn-close bg-transparent mt-3 ms-auto p-3" data-bs-dismiss="modal" aria-label="Close"></button>
-              <div class="form-container sign-up ">
-                  <div>
-                      <h1 class="mt-4">CREAR CUENTA</h1>
-                      <div class="social-icons">
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                      </div>
-                      <span>o crea una cuenta con tu mail</span>
-                      <form class="form_inputs" id="formSignUp" >
-                          <input type="text" id="nameInput" placeholder="Nombre Completo" required>
-                          <input class="" type="email"  id="emailInput" placeholder="Email" required>
-                          <div class="password">
-                          <input type="password" id="passInput" placeholder="Contraseña" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos." required>
-                            <div class="password_container">
-                            <img id="passIcon" src="/src/eye-slash.svg" class="" alt="" onclick="pass()">
-                            </div>
-                          </div>
-                          <div class="password">
-                          <input  type="password" id="repPassInput" placeholder="Repetir Contraseña" required>
-                          <div class="password_container">
-                          <img id="repPassIcon" src="/src/eye-slash.svg" onclick="repPass()">
-                          </div>
-                          </div>
-                          <button id="btn_signUp" type="submit">REGISTRARSE</button>
-                      </form>
+      <div
+        class="modal fade"
+        id="signInModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="containerModal p-0" id="container">
+            <div class="modal-content bg-body-secondary">
+              <button
+                type="button"
+                class="btn-close bg-transparent mt-3 ms-auto p-3"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div class="form-container sign-up">
+                <div>
+                  <h1 class="mt-4">CREAR CUENTA</h1>
+                  <div class="social-icons">
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-google-plus-g"></i
+                    ></a>
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-github"></i
+                    ></a>
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
                   </div>
+                  <span>o crea una cuenta con tu mail</span>
+                  <form class="form_inputs" id="formSignUp">
+                    <input
+                      type="text"
+                      id="nameInput"
+                      placeholder="Nombre Completo"
+                      required
+                    />
+                    <input
+                      class=""
+                      type="email"
+                      id="emailInput"
+                      placeholder="Email"
+                      required
+                    />
+                    <div class="password">
+                      <input
+                        type="password"
+                        id="passInput"
+                        placeholder="Contraseña"
+                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}"
+                        title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos."
+                        required
+                      />
+                      <div class="password_container">
+                        <img
+                          id="passIcon"
+                          src="/src/eye-slash.svg"
+                          class=""
+                          alt=""
+                          onclick="pass()"
+                        />
+                      </div>
+                    </div>
+                    <div class="password">
+                      <input
+                        type="password"
+                        id="repPassInput"
+                        placeholder="Repetir Contraseña"
+                        required
+                      />
+                      <div class="password_container">
+                        <img
+                          id="repPassIcon"
+                          src="/src/eye-slash.svg"
+                          onclick="repPass()"
+                        />
+                      </div>
+                    </div>
+                    <button id="btn_signUp" type="submit">REGISTRARSE</button>
+                  </form>
+                </div>
               </div>
               <div class="form-container sign-in mt-4">
-                  <div class="formSignIn">
-                      <h1>INICIAR SESION</h1>
-                      <div class="social-icons">
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-github"></i></a>
-                          <a href="/pages/errorpage.html" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                      </div>
-                      <span>o inicia sesion con</span>
-                      <form class="form_inputs" id="formSignIn">
-                          <input class="" type="email" id="emailSignIn" placeholder="Email" required>
-                          <div class="password">
-                          <input class="" type="password"  id="passSignIng" pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}" title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos." placeholder="Contraseña" required>
-                          <div class="password_container">
-                            <img id="passSignIngIcon" src="/src/eye-slash.svg" onclick="passSg()">
-                          </div>
-                          </div>
-                          <a class="py-1 fs-6 fw-medium" data-bs-toggle="modal" data-bs-target="#restorePass">Olvidaste tu contraseña?</a>                              
-                          <button id="btn_signIn" type="submit">Iniciar Sesion</button>
-                      </form>
+                <div class="formSignIn">
+                  <h1>INICIAR SESION</h1>
+                  <div class="social-icons">
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-google-plus-g"></i
+                    ></a>
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-facebook-f"></i
+                    ></a>
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-github"></i
+                    ></a>
+                    <a href="/pages/errorpage.html" class="icon"
+                      ><i class="fa-brands fa-linkedin-in"></i
+                    ></a>
                   </div>
-              </div> 
+                  <span>o inicia sesion con</span>
+                  <form class="form_inputs" id="formSignIn">
+                    <input
+                      class=""
+                      type="email"
+                      id="emailSignIn"
+                      placeholder="Email"
+                      required
+                    />
+                    <div class="password">
+                      <input
+                        class=""
+                        type="password"
+                        id="passSignIng"
+                        pattern="(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}"
+                        title="La contraseña debe tener entre 8 y 16 caracteres, incluir al menos un número y una mayuscula, y no debe contener símbolos."
+                        placeholder="Contraseña"
+                        required
+                      />
+                      <div class="password_container">
+                        <img
+                          id="passSignIngIcon"
+                          src="/src/eye-slash.svg"
+                          onclick="passSg()"
+                        />
+                      </div>
+                    </div>
+                    <a
+                      class="py-1 fs-6 fw-medium"
+                      data-bs-toggle="modal"
+                      data-bs-target="#restorePass"
+                      >Olvidaste tu contraseña?</a
+                    >
+                    <button id="btn_signIn" type="submit">
+                      Iniciar Sesion
+                    </button>
+                  </form>
+                </div>
+              </div>
               <div class="toggle-container">
-                  <div class="toggle">
-                      <div class="toggle-panel toggle-left">
-                          <p>Si ya tienes una cuenta</p>
-                          <button class="hidden" id="login">INICIAR SESION</button>
-                      </div>
-                      <div class="toggle-panel toggle-right">
-                          <p>Si no estas registrado</p>
-                          <button class="hidden" id="register">CREAR CUENTA</button>
-                      </div>
+                <div class="toggle">
+                  <div class="toggle-panel toggle-left">
+                    <p>Si ya tienes una cuenta</p>
+                    <button class="hidden" id="login">INICIAR SESION</button>
                   </div>
+                  <div class="toggle-panel toggle-right">
+                    <p>Si no estas registrado</p>
+                    <button class="hidden" id="register">CREAR CUENTA</button>
+                  </div>
+                </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="restorePass"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <form action="/pages/errorpage.html">
+            <div class="modal-content mx-5 bg-dark text-bg-dark">
+              <div class="modal-header">
+                <h1 class="modal-title fs-4" id="exampleModalLabel">
+                  Recuperar contraseña
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
-          </div>
-        </div>
-      </div>
-    <!-- Modal -->
-      <div class="modal fade" id="restorePass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-       <div class="modal-dialog modal-dialog-centered">
-         <form action="/pages/errorpage.html">
-         <div class="modal-content mx-5 bg-dark text-bg-dark">
-          <div class="modal-header">
-              <h1 class="modal-title fs-4" id="exampleModalLabel">Recuperar contraseña</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body justify-content-center">
-              <p>Ingrese el correo con el que sea registrado</p>
-              <p>Y te enviaremos un correo para continuar</p>
-              <input type="email" name="email" autocomplete="none" class="p-2" placeholder="Email" required>
-          </div>
-          <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-custom-hoveer btn-custom-colours text-light">Enviar</button>
-          </div>
-          </div>
-           </form>
-       </div>
-      </div>
-  </header>
-  
-  <main>
-    <div id="" class="carousel slide  d-sm-none d-md-none d-md-block" data-bs-ride="">
-      <img src="./img/bannersmall.webp" class="d-block w-100" alt="banner oferta">
-    </div>
-  
-    <div id="carouselExampleAutoplaying" class="carousel slide d-none d-sm-block" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="4000">
-          <img src="./img/bannerinicial.webp" class="d-block w-100" style="height: 550px" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="./img/banner2.webp" class="d-block w-100" style="height: 550px" alt="...">
-        </div>
-        <div class="carousel-item" data-bs-interval="4000">
-          <img src="img/banner3.webp" class="d-block w-100" style="height:550px" alt="...">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  
-    
-    <section class="mt-3">
-      <div class="text-center">
-        <h1>Descubrí nuestros productos</h1>
-
-        <div class="search-input position-relative w-50 mx-auto">
-          <input type="search" class="filter-card border-filter-custom shadow form-control form-control-lg ps-5" placeholder="Busca por nombre">
-          <svg xmlns="http://www.w3.org/2000/svg" class="position-absolute top-50 translate-middle-y search-icon" width="25" height="25" viewBox="0 0 20 20" fill="currentColor">
-             <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-          </svg>
-       </div>
-
-      </div>
-      <hr>
-  
-      <div class="category_list container row text-center mx-auto m-2">
-        <div class="col-md">
-          <a class="category_item link-transition rounded-circle btn" category="indumentaria">
-            <img src="./img/indumentaria.webp" class="rounded-circle" alt="indumentaria" style="height: 180px;">
-          </a>
-        </div>
-  
-        <div class="col-md ">
-          <a class="category_item link-transition rounded-circle btn " category="repuestos">
-            <img src="./img/repuestos.webp" class="rounded-circle" alt="Repuestos" style="height: 180px;">
-          </a>
-        </div>
-  
-        <div class="col-md w-100">
-          <a class="category_item link-transition rounded-circle btn " category="accesorios">
-            <img src="./img/accesorios.webp" class="rounded-circle" alt="Accesorios" style="height: 180px;">
-          </a>
-        </div>
-        <div class="col-md w-100">
-          <a class="category_item link-transition rounded-circle btn " category="all">
-            <img src="./img/todoslosart.webp" class="rounded-circle" alt="Accesorios" style="height: 180px;">
-          </a>
-        </div>
-      </div>
-    </section>
-  
-   
-    
-    <section class="products-list d-flex justify-content-center flex-wrap " id="cardProducts">
-
-    </section>
-  
-  
-  
-    <hr>
-    <H2 class="text-center"> Novedades de nuestras marcas</H2>
-    <section class="container m-4 mx-auto row">
-      <div class="card mb-3 col-md-6 w-100 shadow h-100">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/FOX.webp" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">FOX</h5>
-              <p class="card-text">Fox es una reconocida marca en la industria de deportes de acción, especialmente
-                conocida por sus productos relacionados con deportes extremos y actividades al aire libre, en particular
-                el motocross y el mountain bike.
-                Fox Racing ha sido conocida por su enfoque en la innovación y el diseño técnico, brindando productos que
-                cumplen con los estándares exigentes de los deportistas de élite
-              </p>
-              <p class="card-text"><small class="text-body-secondary">Actualizado hace 5 min.</small></p>
-              <a href="https://www.foxracing.com/" target="_blank">
-                <button type="button" class="btn btn-dark btn-custom-hoveer" data-bs-toggle="modal"
-                  data-bs-target="#exampleModal">
-                  Ir a pagina
+              <div class="modal-body justify-content-center">
+                <p>Ingrese el correo con el que sea registrado</p>
+                <p>Y te enviaremos un correo para continuar</p>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="none"
+                  class="p-2"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Cerrar
                 </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card mb-3 col-md-6 w-100 shadow h-100">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="img/KTM.webp" class="img-fluid rounded-start" alt="...">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">KTM</h5>
-              <p class="card-text">KTM es conocida por sus motocicletas de alto rendimiento, especialmente en el ámbito
-                del motocross, enduro y rally. También fabrica motocicletas de carretera y de aventura.
-                La línea de productos de KTM incluye motocicletas todoterreno, de enduro, motocicletas de carretera, así
-                como motos de aventura y de cross-country. Además, ofrecen una gama de accesorios y ropa para
-                motociclistas
-              </p>
-              <p class="card-text"><small class="text-body-secondary">Actualizado hace 3 min.</small></p>
-              <a href="https://www.ktm.com/es-es.html" target="_blank">
-                <button type="button" class="btn btn-dark btn-custom-hoveer" data-bs-toggle="modal"
-                  data-bs-target="#exampleModal">
-                  Ir a pagina
+                <button
+                  type="submit"
+                  class="btn btn-custom-hoveer btn-custom-colours text-light"
+                >
+                  Enviar
                 </button>
-              </a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div
+        id=""
+        class="carousel slide d-sm-none d-md-none d-md-block"
+        data-bs-ride=""
+      >
+        <img
+          src="./img/bannersmall.webp"
+          class="d-block w-100"
+          alt="banner oferta"
+        />
+      </div>
+
+      <div
+        id="carouselExampleAutoplaying"
+        class="carousel slide d-none d-sm-block"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="4000">
+            <img
+              src="./img/bannerinicio.webp"
+              class="d-block w-100"
+              style="height: 550px"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000">
+            <img
+              src="./img/banner2.webp"
+              class="d-block w-100"
+              style="height: 550px"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000">
+            <img
+              src="img/banner3.webp"
+              class="d-block w-100"
+              style="height: 550px"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <section class="mt-3">
+        <div class="text-center">
+          <h1>Descubrí nuestros productos</h1>
+
+          <div class="search-input position-relative w-50 mx-auto">
+            <input
+              type="search"
+              class="filter-card border-filter-custom shadow form-control form-control-lg ps-5"
+              placeholder="Busca por nombre"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="position-absolute top-50 translate-middle-y search-icon"
+              width="25"
+              height="25"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </div>
+        </div>
+        <hr />
+
+        <div class="category_list container row text-center mx-auto m-2">
+          <div class="col-md">
+            <a
+              class="category_item link-transition rounded-circle btn"
+              category="indumentaria"
+            >
+              <img
+                src="./img/indumentaria.webp"
+                class="rounded-circle"
+                alt="indumentaria"
+                style="height: 180px"
+              />
+            </a>
+          </div>
+
+          <div class="col-md">
+            <a
+              class="category_item link-transition rounded-circle btn"
+              category="repuestos"
+            >
+              <img
+                src="./img/repuestos.webp"
+                class="rounded-circle"
+                alt="Repuestos"
+                style="height: 180px"
+              />
+            </a>
+          </div>
+
+          <div class="col-md w-100">
+            <a
+              class="category_item link-transition rounded-circle btn"
+              category="accesorios"
+            >
+              <img
+                src="./img/accesorios.webp"
+                class="rounded-circle"
+                alt="Accesorios"
+                style="height: 180px"
+              />
+            </a>
+          </div>
+          <div class="col-md w-100">
+            <a
+              class="category_item link-transition rounded-circle btn"
+              category="all"
+            >
+              <img
+                src="./img/todoslosart.webp"
+                class="rounded-circle"
+                alt="Accesorios"
+                style="height: 180px"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="products-list d-flex justify-content-center flex-wrap"
+        id="cardProducts"
+      ></section>
+
+      <hr />
+      <h2 class="text-center">Novedades de nuestras marcas</h2>
+      <section class="container m-4 mx-auto row">
+        <div class="card mb-3 col-md-6 w-100 shadow h-100">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/FOX.webp"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">FOX</h5>
+                <p class="card-text">
+                  Fox es una reconocida marca en la industria de deportes de
+                  acción, especialmente conocida por sus productos relacionados
+                  con deportes extremos y actividades al aire libre, en
+                  particular el motocross y el mountain bike. Fox Racing ha sido
+                  conocida por su enfoque en la innovación y el diseño técnico,
+                  brindando productos que cumplen con los estándares exigentes
+                  de los deportistas de élite
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary"
+                    >Actualizado hace 5 min.</small
+                  >
+                </p>
+                <a href="https://www.foxracing.com/" target="_blank">
+                  <button
+                    type="button"
+                    class="btn btn-dark btn-custom-hoveer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    Ir a pagina
+                  </button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-  
-    </section>
-  </main>
-  
-  <footer class="bg-dark text-light py-5 text-center">
-          <div class="container mt-4">
-            <div class="row">
-              <!-- Páginas del Navbar -->
-              <div class="col-md my-3">
-                <h5 class="text-colour-title">
-                  Enlaces
-                </h5>
-                <ul class="list-unstyled">
-                  <li><a class="nav-link" href="../index.html">Inicio</a></li>
-                  <li><a class="nav-link" href="../pages/errorpage.html">Servicios</a></li>
-                  <li><a class="nav-link" href="../pages/errorpage.html">Productos</a></li>
-                  <li><a class="nav-link" href="../pages/aboutUs.html">Contacto</a></li>
-                </ul>
-              </div>
-              <!-- Logo -->
-              <div class="col-md mt-4">
-                <img src="../img/logorolling.webp" alt="Logo de la empresa" class="img-fluid " style="height: 100px">
-              </div>
-              <!-- Formulario de Contacto de la Página -->
-              <div class="col-md my-3">
-                <h5 class="mb-4 text-colour-title">Contacto de la Página</h5>
-                <ul class="m-2 list-unstyled">
-                  <li class="m-3">Telefono: 0381 578-3030 </li>
-                  <li class="m-3"> Dirección: General Paz 576 Piso 9 </li>
-                  <li class="m-3">E-mail: hi@rollingcode.co </li>
-                </ul>
+
+        <div class="card mb-3 col-md-6 w-100 shadow h-100">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="img/KTM.webp"
+                class="img-fluid rounded-start"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">KTM</h5>
+                <p class="card-text">
+                  KTM es conocida por sus motocicletas de alto rendimiento,
+                  especialmente en el ámbito del motocross, enduro y rally.
+                  También fabrica motocicletas de carretera y de aventura. La
+                  línea de productos de KTM incluye motocicletas todoterreno, de
+                  enduro, motocicletas de carretera, así como motos de aventura
+                  y de cross-country. Además, ofrecen una gama de accesorios y
+                  ropa para motociclistas
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary"
+                    >Actualizado hace 3 min.</small
+                  >
+                </p>
+                <a href="https://www.ktm.com/es-es.html" target="_blank">
+                  <button
+                    type="button"
+                    class="btn btn-dark btn-custom-hoveer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    Ir a pagina
+                  </button>
+                </a>
               </div>
             </div>
           </div>
-  </footer>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-dark text-light py-5 text-center">
+      <div class="container mt-4">
+        <div class="row">
+          <!-- Páginas del Navbar -->
+          <div class="col-md my-3">
+            <h5 class="text-colour-title">Enlaces</h5>
+            <ul class="list-unstyled">
+              <li><a class="nav-link" href="../index.html">Inicio</a></li>
+              <li>
+                <a class="nav-link" href="../pages/errorpage.html">Servicios</a>
+              </li>
+              <li>
+                <a class="nav-link" href="../pages/errorpage.html">Productos</a>
+              </li>
+              <li>
+                <a class="nav-link" href="../pages/aboutUs.html">Contacto</a>
+              </li>
+            </ul>
+          </div>
+          <!-- Logo -->
+          <div class="col-md mt-4">
+            <img
+              src="../img/logorolling.webp"
+              alt="Logo de la empresa"
+              class="img-fluid"
+              style="height: 100px"
+            />
+          </div>
+          <!-- Formulario de Contacto de la Página -->
+          <div class="col-md my-3">
+            <h5 class="mb-4 text-colour-title">Contacto de la Página</h5>
+            <ul class="m-2 list-unstyled">
+              <li class="m-3">Telefono: 0381 578-3030</li>
+              <li class="m-3">Dirección: General Paz 576 Piso 9</li>
+              <li class="m-3">E-mail: hi@rollingcode.co</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
     <!-- Enlace a JS de Bootstrap (jQuery es necesario) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/jquery-3.2.1.js"></script>
-    <script src="/js/filtro.js"></script>
+    <script src="/js/filter.js"></script>
     <script type="module" src="/js/regLogin.js"></script>
     <script type="module" src="./js/app.js"></script>
     <script type="module" src="/js/regLogin.js"></script>
-</body>
+  </body>
 </html>
